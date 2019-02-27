@@ -1,15 +1,24 @@
 {
+  "homepage": "https://denisyuk26.github.io/github_top_ten/",
   "name": "github_top_ten",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^16.8.3",
-    "react-dom": "^16.8.3",
-    "react-scripts": "2.1.5"
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2",
+    "react-scripts": "2.1.5",
+    "node-sass": "^4.11.0",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "react-select": "^2.3.0",
+    "autoprefixer": "^9.4.7",
+    "gh-pages": "^2.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -21,5 +30,15 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "react-app-rewire-postcss": "^3.0.2",
+    "react-app-rewired": "^2.1.0",
+    "react-icons": "^3.4.0",
+    "react-redux": "^6.0.0",
+    "redux": "^4.0.1",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
+    "styled-components": "^4.1.3"
+  }
 }
