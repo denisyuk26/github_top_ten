@@ -25,13 +25,13 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ## About app
 
-App builded with help React, Redux, Github Api V3. It get ten users from Kyiv city, and render some info about users, such as: 
-***user photo
- ***login name(link to user acc page, opened in new page), 
- ***user name
- *** user location
- *** count of user followers
- *** global count of all user repositories stars 
+App builded with help React, Redux, Github Api V3. It get ten users from Kyiv city, and render some info about users, such as: <br>
+***user photo <br>
+ ***login name(link to user acc page, opened in new page), <br>
+ ***user name <br>
+ *** user location <br>
+ *** count of user followers <br>
+ *** global count of all user repositories stars <br>
 
  GitHub has Rate-Limit, u can read more on [Rate-Limit Github Api](https://developer.github.com/v3/rate_limit/)
  So when rate limit is over app render error, for user
