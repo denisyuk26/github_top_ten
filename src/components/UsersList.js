@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import UserCard from "./UserCard"
 import styled from 'styled-components';
 
@@ -10,11 +10,9 @@ padding: 0;
     list-style-type: none;
 `
 
-export default class UsersList extends Component {
-  render() {
+export default function UsersList (props) {
     return (
-        <StyledUsersList><UserCard fullUserInfo={this.props.fullUserInfo} totalStars={this.props.totalStars}/></StyledUsersList>
+        <StyledUsersList><UserCard fullUserInfo={props.fullUserInfo} totalStars={props.totalStars}/></StyledUsersList>
     );
-  }
 }
 

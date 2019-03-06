@@ -1,56 +1,42 @@
-import React, { Component } from "react";
+import React from "react";
 import { MdLocationOn, MdStar, MdPeopleOutline } from "react-icons/md";
 import styled from "styled-components";
 
-
-// code
-export default class UserCard extends Component {
-  openTabInNewWindow = url => {
-    return window.open(url, "_blank");
-  };
-  renderUsersList = () => {
-    return this.props.fullUserInfo.map(user => {
-      return (
-        <StyledCard key={user.data.id}>
-          <Container>
-            <UserAvatar src={user.data.avatar_url} alt="ava" />
-            <TextContainer>
-              <NameBlock>
-                <UserLink
-                  onClick={() => {
-                    this.openTabInNewWindow(user.data.html_url);
-                  }}
-                >
-                  {user.data.login}
-                </UserLink>
-                <UserName>{user.data.name}</UserName>
-              </NameBlock>
-              <Bio>{user.data.bio}</Bio>
-              <IconsBlock>
-                <IconsInfo>
-                  <MdLocationOn />
-                  <span>{user.data.location}</span>
-                </IconsInfo>
-                <IconsInfo className="stars">
-                  <MdStar /> <span>{user.stars}</span>
-                </IconsInfo>
-                <IconsInfo className="followers">
-                  <MdPeopleOutline />
-                  <span>{user.data.followers}</span>
-                </IconsInfo>
-              </IconsBlock>
-            </TextContainer>
-          </Container>
-        </StyledCard>
-      );
-    });
-  };
-  render() {
-    return this.renderUsersList();
-  }
+export default function UserCard(props) {
+  return props.fullUserInfo.map(user => {
+    return (
+      <StyledCard key={user.data.id}>
+        <Container>
+          <UserAvatar src={user.data.avatar_url} alt="ava" />
+          <TextContainer>
+            <NameBlock>
+              <UserLink href={user.data.html_url} target="_blank">
+                {user.data.login}
+              </UserLink>
+              <UserName>{user.data.name}</UserName>
+            </NameBlock>
+            <Bio>{user.data.bio}</Bio>
+            <IconsBlock>
+              <IconsInfo>
+                <MdLocationOn />
+                <span>{user.data.location}</span>
+              </IconsInfo>
+              <IconsInfo className="stars">
+                <MdStar /> <span>{user.stars}</span>
+              </IconsInfo>
+              <IconsInfo className="followers">
+                <MdPeopleOutline />
+                <span>{user.data.followers}</span>
+              </IconsInfo>
+            </IconsBlock>
+          </TextContainer>
+        </Container>
+      </StyledCard>
+    );
+  });
 }
 
-//styles 
+//styles
 const StyledCard = styled.li`
   border-bottom: 1px solid #00000024;
   padding-bottom: 5px;
@@ -66,17 +52,16 @@ const Container = styled.div`
 const UserAvatar = styled.img`
   max-width: 8vw;
   width: 100%;
-  border-radius: .4vw;
+  border-radius: 0.4vw;
   align-self: center;
   justify-self: center;
-
 `;
 
 const TextContainer = styled.div`
   display: grid;
 
-  grid-auto-rows: minmax(0,5vh);
-    align-items: center;
+  grid-auto-rows: minmax(0, 5vh);
+  align-items: center;
 `;
 
 const NameBlock = styled.div`
@@ -84,11 +69,12 @@ const NameBlock = styled.div`
   flex-direction: row;
 `;
 
-const UserLink = styled.p`
+const UserLink = styled.a`
   cursor: pointer;
   margin: 0;
   font-size: 1.2em;
   color: blue;
+  text-decoration: none;
 `;
 
 const UserName = styled.span`
@@ -114,9 +100,8 @@ const IconsInfo = styled.div`
     color: #00000070;
     font-size: 1em;
   }
-  >span {
+  > span {
     align-self: center;
-    font-size: .8em;
+    font-size: 0.8em;
   }
 `;
-

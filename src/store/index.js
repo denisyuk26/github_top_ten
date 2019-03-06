@@ -1,17 +1,13 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import logger from "redux-logger";
-import {getUsersList, getFullUserInfo, getTotalUserStars} from './reducers';
+import {getUsersError, getFullUserInfo} from './reducers';
 import thunk from "redux-thunk";
 
 
 const store = createStore(
     combineReducers({
-        
-        users: getUsersList,
         fullUserInfo: getFullUserInfo,
-        totalStars: getTotalUserStars,
-        error: getUsersList
-        
+        error: getUsersError    
     }),
     
     {},
